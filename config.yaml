@@ -1,0 +1,51 @@
+# CONFIGURATION FILE FOR THE SRT FILE PARSER
+
+# METADATA
+# the default encoding
+Encoding: 'utf-8'
+
+# the python version to use
+python_version: 3
+
+# SETUP
+# prerequisite packages on OS for this program to run properly
+preqs:
+  - "unzip"
+
+# the symbol to represent no language selector
+lang_pass: "^&null"
+
+#SETTINGS
+# the output line length how many characters should each line of the output transcript be
+output_line_length: 100
+
+# the output file name to write the transcript to
+# unless an path is specified, the transcript will be written
+# to the project root directory
+file_to_write_to: "transcript.txt"
+
+# the language abbreviation to select as the primary language of the
+# subtitles, this will be in the subtitle title eg. en for English
+lang_abbr: "en"
+
+# the zipped, srt file archive location
+zipped_sub_file: "/media/malanb5/ant_1TB/education/AI/archive/AI_subs.zip"
+
+# the temporary directory name which will be created
+temp_dir: "/tmp/srt_subtitle"
+
+# the criteria functions to select the files
+criteria_fxns:
+  - is_correct_language
+
+criteria_args:
+  # the first criteria's arguments
+  -
+      # the function to extract the words by
+      - extractor
+      # the language abbreviation
+      - "en"
+      # the index of the word to extract
+      - 2
+      # the delimiter to break the file name up by
+      - "-"
